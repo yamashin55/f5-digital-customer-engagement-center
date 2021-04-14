@@ -9,10 +9,10 @@ resource "random_password" "password" {
 }
 # cloud
 variable "projectPrefix" {
-  default = "kic-aws"
+  default = "syamada-kic-aws"
 }
 variable "awsRegion" {
-  default = "us-east-2"
+  default = "us-east-1"
 }
 
 variable "awsAz1" {
@@ -43,6 +43,6 @@ variable "kubernetes" {
   description = " deploy a kubernetes cluster or not"
 }
 variable "clusterName" {
-  default     = "my-cluster"
+  default     = "syamada-cluster"
   description = "eks cluster name"
 }
