@@ -1,6 +1,6 @@
 # project
 variable "projectPrefix" {
-  default = "f5-dcec"
+  default = "syamada-f5"
 }
 # network
 variable "vpc" {
@@ -17,7 +17,7 @@ variable "instanceType" {
 }
 variable "resourceOwner" {
   description = "tag used to mark instance owner"
-  default     = "f5-dcec-user"
+  default     = "syamada-f5-user"
 }
 # admin
 variable "adminAccountName" {

@@ -1,10 +1,10 @@
 variable "projectPrefix" {
   description = "projectPrefix name to use for tags"
-  default     = "f5-dcec"
+  default     = "syamada-f5"
 }
 variable "resourceOwner" {
   description = "owner of the deployment, for tagging purposes"
-  default     = "f5-user"
+  default     = "syamada-f5-user"
 }
 variable "buildSuffix" {
   description = "random string for tagging purposes"
