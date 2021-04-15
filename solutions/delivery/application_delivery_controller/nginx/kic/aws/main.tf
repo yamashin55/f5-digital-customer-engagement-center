@@ -11,7 +11,7 @@ module "aws_network" {
 }
 // ECR
 resource "aws_ecr_repository" "ecr" {
-  name                 = "${var.clusterName}-ecr-${random_id.randomString.dec}"
+  name                 = "${var.clusterName}-ecr"
   image_tag_mutability = "MUTABLE"
 
   image_scanning_configuration {
@@ -22,7 +22,7 @@ resource "aws_ecr_repository_policy" "ecr-policy" {
   depends_on = [
     aws_ecr_repository.ecr,
   ]
-  repository = "${var.clusterName}-ecr-${random_id.randomString.dec}"
+  repository = "${var.clusterName}-ecr"
   policy     = <<EOF
   {
     "Version": "2008-10-17",
@@ -64,7 +64,7 @@ provider "kubernetes" {
 }
 module "eks" {
   source          = "terraform-aws-modules/eks/aws"
-  cluster_name    = "${var.clusterName}-${random_id.randomString.dec}"
+  cluster_name    = "${var.clusterName}-eks"
   cluster_version = "1.18"
   subnets         = [module.aws_network.subnetsAz2["public"], module.aws_network.subnetsAz1["public"]]
   vpc_id          = module.aws_network.vpcs["main"]
