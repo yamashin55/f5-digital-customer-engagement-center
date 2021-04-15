@@ -35,7 +35,7 @@ variable "adminSourceCidr" {
 }
 variable "resourceOwner" {
   description = "tag used to mark instance owner"
-  default     = "dcec-kic-user"
+  default     = "syamada-kic-user"
 }
 # eks
 variable "kubernetes" {
