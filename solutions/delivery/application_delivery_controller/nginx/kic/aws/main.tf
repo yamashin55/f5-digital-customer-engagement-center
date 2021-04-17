@@ -70,11 +70,11 @@ module "eks" {
   vpc_id          = module.aws_network.vpcs["main"]
   worker_groups = [
     {
-      instance_type    = "t3.xlarge"
-      asg_max_size     = 4
-      asg_min_size     = 2
-      desired_size     = 2
-      root_volume_type = "standard"
+      instance_type        = "t3.xlarge"
+      asg_max_size         = 4
+      asg_min_size         = 2
+      asg_desired_capacity = 2
+      root_volume_type     = "standard"
     }
   ]
   create_eks                           = true
