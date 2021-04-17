@@ -72,6 +72,7 @@ module "eks" {
     {
       instance_type    = "t3.xlarge"
       asg_max_size     = 4
+      asg_min_size     = 2
       root_volume_type = "standard"
     }
   ]
