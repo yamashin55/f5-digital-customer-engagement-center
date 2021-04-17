@@ -73,6 +73,7 @@ module "eks" {
       instance_type    = "t3.xlarge"
       asg_max_size     = 4
       asg_min_size     = 2
+      desired_size     = 2
       root_volume_type = "standard"
     }
   ]
@@ -86,21 +87,21 @@ module "eks" {
 }
 
 // jumphost
-resource "aws_key_pair" "deployer" {
-  key_name   = "${var.adminAccountName}-${var.projectPrefix}"
-  public_key = var.sshPublicKey
-}
+// resource "aws_key_pair" "deployer" {
+//   key_name   = "${var.adminAccountName}-${var.projectPrefix}"
+//   public_key = var.sshPublicKey
+// }
 
-module "jumphost" {
-  source               = "../../../../../../modules/aws/terraform/workstation"
-  projectPrefix        = var.projectPrefix
-  adminAccountName     = var.adminAccountName
-  coderAccountPassword = random_password.password.result
-  vpc                  = module.aws_network.vpcs["main"]
-  keyName              = aws_key_pair.deployer.id
-  mgmtSubnet           = module.aws_network.subnetsAz1["mgmt"]
-  securityGroup        = aws_security_group.secGroupWorkstation.id
-}
+// module "jumphost" {
+//   source               = "../../../../../../modules/aws/terraform/workstation"
+//   projectPrefix        = var.projectPrefix
+//   adminAccountName     = var.adminAccountName
+//   coderAccountPassword = random_password.password.result
+//   vpc                  = module.aws_network.vpcs["main"]
+//   keyName              = aws_key_pair.deployer.id
+//   mgmtSubnet           = module.aws_network.subnetsAz1["mgmt"]
+//   securityGroup        = aws_security_group.secGroupWorkstation.id
+// }
 
 
 // NGINX
