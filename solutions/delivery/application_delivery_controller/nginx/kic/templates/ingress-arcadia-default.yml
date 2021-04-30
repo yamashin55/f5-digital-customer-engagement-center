@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: arcadia-ingress
+spec:
+  rules:
+  - host: ae6ce4f5a4e974703b5dec403efa2d1c-1766640386.us-east-1.elb.amazonaws.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: main
+          servicePort: 80
+      - path: /files
+        backend:
+          serviceName: backend
+          servicePort: 80
+      - path: /api
+        backend:
+          serviceName: app2
+          servicePort: 80
+      - path: /app3
+        backend:
+          serviceName: app3
+          servicePort: 80
