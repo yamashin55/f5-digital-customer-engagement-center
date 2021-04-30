@@ -16,11 +16,11 @@ variable "awsRegion" {
 }
 
 variable "awsAz1" {
-  default = null
+  default = "null"
 }
 
 variable "awsAz2" {
-  default = null
+  default = "null"
 }
 # admin
 variable "adminAccountName" {
